@@ -1,0 +1,41 @@
+logging:
+  level:
+    '[com.rakapm.perpustakaan.service.impl]': TRACE
+
+app:
+  currency: IDR
+  timezone: Asia/Jakarta
+  welcome-text: Perpustakaan default page
+cloud:
+  api-key: ${CLOUD_KEY}
+server:
+  port: 8080
+
+---
+spring:
+  config:
+    activate:
+      on-profile:
+      - development
+server:
+  port: 8081
+app:
+  welcome-text: Perpustakaan development page
+  
+---
+spring:
+  config:
+    activate:
+      on-profile:
+      - test
+server:
+  port: 8082
+  
+---
+spring:
+  config:
+    activate:
+      on-profile:
+      - production
+server:
+  port: 8083
